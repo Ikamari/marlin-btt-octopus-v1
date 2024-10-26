@@ -61,14 +61,14 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Original author or contributor.
+#define STRING_CONFIG_H_AUTHOR "(BigTreeTech, Octopus)" // Original author or contributor.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section machine
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #define MOTHERBOARD BOARD_BTT_OCTOPUS_PRO_V1_1
 #endif
 
 /**
@@ -79,7 +79,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
-#define SERIAL_PORT 0
+#define SERIAL_PORT 1
 
 /**
  * Serial Port Baud Rate
@@ -92,7 +92,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
@@ -101,7 +101,7 @@
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
-//#define SERIAL_PORT_2 -1
+#define SERIAL_PORT_2 -1
 //#define BAUDRATE_2 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
 
 /**
@@ -2418,7 +2418,7 @@
  *   M501 - Read settings from EEPROM. (i.e., Throw away unsaved changes)
  *   M502 - Revert settings to "factory" defaults. (Follow with M500 to init the EEPROM.)
  */
-//#define EEPROM_SETTINGS     // Persistent storage with M500 and M501
+#define EEPROM_SETTINGS     // Persistent storage with M500 and M501
 //#define DISABLE_M503        // Saves ~2700 bytes of flash. Disable for release!
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save flash.
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
@@ -2663,7 +2663,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-//#define SDSUPPORT
+#define SDSUPPORT
 
 /**
  * SD CARD: ENABLE CRC
@@ -2799,7 +2799,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-//#define SPEAKER
+#define SPEAKER
 
 //
 // The duration and frequency for the UI feedback sound.
@@ -2808,8 +2808,8 @@
 // Note: Test audio output with the G-Code:
 //  M300 S<frequency Hz> P<duration ms>
 //
-//#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2
-//#define LCD_FEEDBACK_FREQUENCY_HZ 5000
+#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 20
+#define LCD_FEEDBACK_FREQUENCY_HZ 1000
 
 //
 // Tone queue size, used to keep beeps from blocking execution.
@@ -3257,6 +3257,9 @@
 // Touch-screen LCD for Malyan M200/M300 printers
 //
 //#define MALYAN_LCD
+#if ENABLED(MALYAN_LCD)
+  #define LCD_SERIAL_PORT 1  // Default is 1 for Malyan M200
+#endif
 
 //
 // Touch UI for FTDI EVE (FT800/FT810) displays
@@ -3291,6 +3294,9 @@
 // 320x240 Nextion 2.8" serial TFT Resistive Touch Screen NX3224T028
 //
 //#define NEXTION_TFT
+#if ENABLED(NEXTION_TFT)
+  #define LCD_SERIAL_PORT 1  // Default is 1 for Nextion
+#endif
 
 //
 // Third-party or vendor-customized controller interfaces.

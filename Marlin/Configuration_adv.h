@@ -2051,6 +2051,7 @@
 // Additional options for DGUS / DWIN displays
 //
 #if HAS_DGUS_LCD
+  #define LCD_SERIAL_PORT 3
   #define LCD_BAUDRATE 115200
 
   #define DGUS_RX_BUFFER_SIZE 128
@@ -2285,18 +2286,18 @@
  *
  * Warning: Does not respect endstops!
  */
-//#define BABYSTEPPING
+#define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
   //#define EP_BABYSTEPPING                 // M293/M294 babystepping with EMERGENCY_PARSER support
-  //#define BABYSTEP_WITHOUT_HOMING
-  //#define BABYSTEP_ALWAYS_AVAILABLE       // Allow babystepping at all times (not just during movement)
+  #define BABYSTEP_WITHOUT_HOMING
+  #define BABYSTEP_ALWAYS_AVAILABLE       // Allow babystepping at all times (not just during movement)
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   //#define BABYSTEP_INVERT_Z               // Enable if Z babysteps should go the other way
   //#define BABYSTEP_MILLIMETER_UNITS       // Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps
   #define BABYSTEP_MULTIPLICATOR_Z  1       // (steps or mm) Steps or millimeter distance for each Z babystep
   #define BABYSTEP_MULTIPLICATOR_XY 1       // (steps or mm) Steps or millimeter distance for each XY babystep
 
-  //#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
+  #define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
   #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
     #define DOUBLECLICK_MAX_INTERVAL 1250   // Maximum interval between clicks, in milliseconds.
                                             // Note: Extra time may be added to mitigate controller latency.
@@ -2306,7 +2307,7 @@
     #endif
   #endif
 
-  //#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
+  #define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
 
   //#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
@@ -2675,7 +2676,7 @@
  * Currently handles M108, M112, M410, M876
  * NOTE: Not yet implemented for all platforms.
  */
-//#define EMERGENCY_PARSER
+#define EMERGENCY_PARSER
 
 /**
  * Realtime Reporting (requires EMERGENCY_PARSER)
@@ -4141,12 +4142,12 @@
  * Host Prompt Support enables Marlin to use the host for user prompts so
  * filament runout and other processes can be managed from the host side.
  */
-//#define HOST_ACTION_COMMANDS
+#define HOST_ACTION_COMMANDS
 #if ENABLED(HOST_ACTION_COMMANDS)
-  //#define HOST_PAUSE_M76                // Tell the host to pause in response to M76
-  //#define HOST_PROMPT_SUPPORT           // Initiate host prompts to get user feedback
+  #define HOST_PAUSE_M76                // Tell the host to pause in response to M76
+  #define HOST_PROMPT_SUPPORT           // Initiate host prompts to get user feedback
   #if ENABLED(HOST_PROMPT_SUPPORT)
-    //#define HOST_STATUS_NOTIFICATIONS   // Send some status messages to the host as notifications
+    #define HOST_STATUS_NOTIFICATIONS   // Send some status messages to the host as notifications
   #endif
   //#define HOST_START_MENU_ITEM          // Add a menu item that tells the host to start
   //#define HOST_SHUTDOWN_MENU_ITEM       // Add a menu item that tells the host to shut down
