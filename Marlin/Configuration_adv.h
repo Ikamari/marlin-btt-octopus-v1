@@ -1033,7 +1033,7 @@
    * If not defined, probe limits will be used.
    * Override with 'M422 S<index> X<pos> Y<pos>'.
    */
-  #define Z_STEPPER_ALIGN_XY { { 90, 94 }, { 225, 94 } } // 90-225 OR 83-240
+  #define Z_STEPPER_ALIGN_XY { { 75 - 47, Y_BED_SIZE / 2 }, { X_MAX_POS - 47, Y_BED_SIZE / 2 } }
 
   /**
    * Orientation for the automatically-calculated probe positions.
