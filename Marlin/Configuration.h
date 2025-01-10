@@ -1634,7 +1634,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -47, -6, -1.6 } // { -40, -12, -2.55 }
+#define NOZZLE_TO_PROBE_OFFSET { -47, -6, 1 } // { -40, -12, -2.55 }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1887,7 +1887,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 240
 #define Y_MAX_POS 200
-#define Z_MAX_POS 225
+#define Z_MAX_POS 245
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
